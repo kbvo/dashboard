@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --main-color: #e2e8f0;
+    --accent-color: #facc15;
+    --para-color: #8a8a8a;   
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template: 1fr 4fr / 1fr 5fr;
+}
+
+/* sidebar */
+.sidebar {
+    background-color: #1992d4;
+    color: white;
+    grid-row: 1/-1;
+    grid-column: 1 span 1;
+}
+
+.sidebar img {
+    filter: invert();
+}
+
+.sidebar-header {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.sidebar-header img {
+    justify-self: end;
+    width: clamp(50px, 40%, 60px);
+    margin-left: 6px;
+}
+
+li {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    font-size: 1rem;
+}
+
+li img {
+    justify-self: end;
+    align-self: center;
+    margin: 10px;
+    width: 40%;
+}
+
+.sidebar h4 {
+    align-self: center;
+}
+
+.nav-1,
+.nav-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.nav-1 {
+  grid-template-rows: repeat(6, 1fr);
+  margin-bottom: 40px;
+}
+
+.nav-2 {
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* header */
+.header {
+    background-color: #ffffff;
+    grid-row: 1 span 1;
+    grid-column: 2/3;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 6px;
+    box-shadow: 0 6px 4px -1px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-top {
+    display: grid;
+    grid-row: 1/2;
+    grid-template-columns: 1fr 12fr 3fr repeat(2, 1fr) 3fr;
+    place-items: center;
+}
+
+.search-icon {
+    justify-self: end;
+    margin-right: 5px;
+    grid-column: 1/2;
+}
+
+.search-bar {
+    background-color: #e2e8f0;
+    width: 100%;
+    height: 30%;
+    border-radius: 15px;
+    margin-left: 10px;
+    grid-column: 2/3;
+}
+
+.bell-icon,
+.search-icon {
+    width: 25px;
+}
+
+.bell-icon {
+    grid-column: 4/5;
+}
+
+.avatar-small {
+    width: 40px;
+    justify-self: end;
+    grid-column: 5/6;
+}
+
+.username {
+    justify-self: start;
+    margin-left: 30px;
+    font-weight: 700;
+}
+
+.header-bottom {
+    display: grid;
+    grid-template: 1fr 2fr / 1fr 6fr repeat(3, 1fr);
+    place-items: center;
+    padding-bottom: 10px;
+}
+
+.avatar-big {
+    grid-area: 1/1/-1/2;
+    justify-self: center;
+    width: 75px;
+}
+
+.greeting {
+    grid-area: 1/2/2/3;
+    justify-self: start;
+    align-self: end;
+    font-weight: bold;
+    font-size: small;
+    margin-left: -10px;
+}
+
+.name {
+    grid-area: 2/2/3/3;
+    justify-self: start;
+    align-self: start;
+    margin-top: 5px;
+    font-weight: 700;
+    margin-left: -10px;
+    font-size: 22px;
+}
+
+.new {
+    grid-area: 1/3/-1/4;
+}
+  
+.upload {
+    grid-area: 1/4/-1/5;
+}
+  
+.share {
+    grid-area: 1/5/-1/6;
+}
+
+button {
+    background-color: #1992d4;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    width: max(75%, 65px);
+    padding: 10px;
+    justify-self: start;
+}
+
+/* main */
+.main {
+    grid-row: 2/3;
+    grid-column-start: 2/3;
+    background-color: #e2e8f0;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+}
+  
+.main-grid {
+    display: grid;
+    grid-template: 1fr 8fr 1fr 3fr 2fr 3fr 1fr 8fr / repeat(2, 1fr) 0.75fr;
+    column-gap: 1rem;
+    grid-template-areas:
+        "projects-header . announcements-header"
+        "super-cool less-cool announcements"
+        ". . announcements"
+        "impossible easy-peasy announcements"
+        "impossible easy-peasy trending-header"
+        "impossible easy-peasy trending-card"
+        ". . trending-card"
+        "ad-blocker money-maker trending-card";
+    width: 100%;
+    height: 100vh;
+}
+
+.main-grid h4 {
+    padding-bottom: 12px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+  
+.col-1, .col-2 {
+    border-left: 8px solid #facc15;
+    padding: 1rem;
+}
+  
+.projects-header {
+    grid-area: projects-header;
+}
+  
+.announcements-header {
+    grid-area: announcements-header;
+}
+  
+.trending-header {
+    grid-area: trending-header;
+    align-self: end;
+}
+  
+.super-cool {
+    grid-area: super-cool;
+}
+  
+.impossible {
+    grid-area: impossible;
+}
+  
+.ad-blocker {
+    grid-area: ad-blocker;
+}
+  
+.less-cool {
+    grid-area: less-cool;
+}
+  
+.easy-peasy {
+    grid-area: easy-peasy;
+}
+  
+.money-maker {
+    grid-area: money-maker;
+}
+  
+.announcements {
+    grid-area: announcements;
+}
+  
+.trending-card {
+    grid-area: trending-card;
+}
+
+.col-1 > div,
+.col-2 > div {
+    display: grid;
+    grid-template: 1fr 5fr 2fr / 1fr;
+    height: 100%;
+    padding: 10px;
+}
+
+.card h5 {
+    font-size: 1rem;
+}
+
+.card p {
+    color: #8a8a8a;
+}
+  
+.col-1 p, 
+.col-2 p {
+    font-size: 0.85rem;
+}
+  
+.card-icons {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 25px;
+    justify-content: end;
+    align-content: end;
+}
+  
+.card-icons img {
+    width: 25px;
+}
+  
+img[src*="variant"] {
+    transform: rotate(-90deg);
+}
+
+.announcements {
+    padding: 2rem;
+  }
+  
+.announcements > div {
+    display: grid;
+    grid-template: repeat(3, 1fr) / 1fr;
+    row-gap: 25px;
+    height: 100%;
+}
+
+.announcements h6 {
+    font-size: .8rem;
+}
+  
+.announcements p {
+    font-size: 0.7rem;
+}
+  
+.section-1,
+.section-2 {
+    border-bottom: 1px solid var(--main-color);
+}
+  
+.trending-card {
+    padding: 1rem;
+}
+  
+.trending-card > div {
+    display: grid;
+    grid-template: repeat(4, 1fr) / 1fr 3fr;
+    column-gap: 15px;
+    height: 100%;
+}
+  
+.avatar {
+    grid-column: 1/2;
+    width: 50px;
+    height: 50px;
+    align-self: center;
+}
+  
+.profiles {
+    grid-column: 2/3;
+    font-size: 0.7rem;
+    align-self: center;
+}
+  
+.profile-1 {
+    grid-row: 1/2;
+}
+  
+.profile-2 {
+    grid-row: 2/3;
+}
+  
+.profile-3 {
+    grid-row: 3/4;
+}
+  
+.profile-4 {
+    grid-row: 4/5;
+}
+  
+.profiles p:nth-child(1) {
+    color: rgb(37, 37, 37);
+}
